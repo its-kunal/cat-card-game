@@ -1,6 +1,15 @@
 import Redis from "ioredis";
+import dotenv from "dotenv";
 
-const red = new Redis();
+dotenv.config();
+
+const red = new Redis({
+  password: String(process.env.dbpassword),
+  username: String(process.env.dbusername),
+  host: String(process.env.host),
+  port: Number(process.env.dbport),
+  connectionName: String(process.env.connectionName),
+});
 
 export default red;
 

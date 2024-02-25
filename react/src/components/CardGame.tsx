@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import catCard from "../assets/catCard.svg";
 import diffuseCard from "../assets/diffuse.svg";
 import explodeCard from "../assets/explode.svg";
@@ -7,15 +7,15 @@ import cardSvg from "../assets/Card.svg";
 import { useAppDispatch, useAppSelector } from "../store/app";
 import { popCard, startGame } from "../features/game";
 
-enum Cards {
-  CAT = "CAT",
-  DEFUSE = "DEFUSE",
-  SHUFFLE = "SHUFFLE",
-  EXPLODE = "EXPLODE",
-  HIDDEN = "HIDDEN",
-}
+// enum Cards {
+//   CAT = "CAT",
+//   DEFUSE = "DEFUSE",
+//   SHUFFLE = "SHUFFLE",
+//   EXPLODE = "EXPLODE",
+//   HIDDEN = "HIDDEN",
+// }
 
-const cards = Object.values(Cards);
+// const cards = Object.values(Cards);
 
 const cardMap = {
   CAT: catCard,

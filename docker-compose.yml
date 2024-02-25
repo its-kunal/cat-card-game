@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  express:
+    build: ./server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      REDIS_HOST: redis
+      secret: "2zheBOS1t2I/AL+P6XNK4SVE19ghZRDug0Y7U377w0J7gf1YJ2uz09EWzA0wENeUXjrO0neKJjf4yKdRwkZZJw=="
+      dbport: 6379
+      host: "redis"
+      dbpassword: ""
+      dbusername: "default"
+      connectionName: "redis"
+  nginx:
+    build: ./react
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
+volumes:
+  redis-data:

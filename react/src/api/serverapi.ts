@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { store } from "../store/store";
 
-const SERVERURL = "http://localhost:3000";
+const SERVERURL = "http://" + `${window.location.hostname}:3000`;
 
 const axiosInstance = axios.create({
   baseURL: SERVERURL,
@@ -13,7 +13,7 @@ axiosInstance.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   // let token = undefined
   if (token) config.headers.Authorization = `Bearer ${token}`;
-  else  alert("Please Authenticate Yourself")
+  // else  alert("Please Authenticate Yourself")
   return config;
 });
 
